@@ -2,6 +2,8 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
+from django.shortcuts import render, get_object_or_404
+from .models import Post
 
 class PostListCreateView(generics.ListCreateAPIView):
     queryset = Post.objects.all().order_by('-created_at')
@@ -16,8 +18,6 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-from django.shortcuts import render, get_object_or_404
-from .models import Post
 
 def post_list(request):
     posts = Post.objects.all().order_by('-created_at')

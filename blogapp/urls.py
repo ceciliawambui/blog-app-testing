@@ -7,6 +7,7 @@ urlpatterns = [
     path('api/posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
 
     # HTML Views
-    path('', post_list, name='home'),
-    path('post/<int:pk>/', post_detail, name='post-detail'),
+    path('', post_list, name='home'), #this here was weird
+    path('', post_list, name="post_list"),
+    path('post/<int:pk>/', post_detail, name="post_detail"),
 ]
