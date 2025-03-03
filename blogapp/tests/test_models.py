@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from blogapp.models import Post
+# testing
 
 class PostModelTest(TestCase):
     """Tests for the Post model"""
