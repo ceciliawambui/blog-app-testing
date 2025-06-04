@@ -32,7 +32,7 @@ class PostSerializerDeserializationTest(TestCase):
             "author": self.user.username,  # ReadOnlyField does not affect input
         }
         serializer = PostSerializer(data=data)
-        self.assertTrue(serializer.is_valid())  # ✅ Should be valid
+        self.assertTrue(serializer.is_valid())  # Should be valid
         post = serializer.save(author=self.user)  # Manually assign author
         self.assertEqual(post.title, "New Post")
         self.assertEqual(post.content, "This is a new post")
